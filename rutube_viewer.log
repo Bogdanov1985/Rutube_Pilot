@@ -1,0 +1,449 @@
+2025-12-20 01:00:03,804 - INFO - Загружено 3 видео из файла videos.txt
+2025-12-20 01:00:08,384 - INFO - Драйвер успешно создан
+2025-12-20 01:00:08,384 - INFO - Видео 1/3
+2025-12-20 01:00:08,384 - INFO - Начинаем просмотр видео: https://rutube.ru/video/111222333/
+2025-12-20 01:00:08,384 - INFO - Запланированное время просмотра: 60 секунд
+2025-12-20 01:00:15,108 - INFO - Куки приняты
+2025-12-20 01:00:16,500 - WARNING - Видео элемент не найден, попробуем альтернативный метод
+2025-12-20 01:00:16,507 - ERROR - Не удалось найти видео элемент для https://rutube.ru/video/111222333/
+2025-12-20 01:00:16,508 - INFO - Видео 2/3
+2025-12-20 01:00:16,508 - INFO - Пауза между видео: 5 секунд
+2025-12-20 01:00:21,517 - INFO - Начинаем просмотр видео: https://rutube.ru/video/0987654321/
+2025-12-20 01:00:21,519 - INFO - Запланированное время просмотра: 60 секунд
+2025-12-20 01:01:01,010 - WARNING - Видео элемент не найден, попробуем альтернативный метод
+2025-12-20 01:01:01,028 - ERROR - Не удалось найти видео элемент для https://rutube.ru/video/0987654321/
+2025-12-20 01:01:01,028 - INFO - Видео 3/3
+2025-12-20 01:01:01,028 - INFO - Пауза между видео: 5 секунд
+2025-12-20 01:01:06,040 - INFO - Начинаем просмотр видео: https://rutube.ru/video/1234567890/
+2025-12-20 01:01:06,040 - INFO - Запланированное время просмотра: 60 секунд
+2025-12-20 01:01:34,915 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:01:38,946 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:01:43,015 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:01:51,075 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:01:55,114 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:01:59,161 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:02:07,262 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:02:11,309 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=58093): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/bfef4c92f9d7cc811be07e2316e24110/element
+2025-12-20 01:02:22,283 - INFO - Загружено 3 видео из файла videos.txt
+2025-12-20 01:02:23,940 - INFO - Драйвер успешно создан
+2025-12-20 01:02:23,940 - INFO - Видео 1/3
+2025-12-20 01:02:23,940 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:02:23,940 - INFO - Запланированное время просмотра: 60 секунд
+2025-12-20 01:02:29,836 - INFO - Куки приняты
+2025-12-20 01:02:30,909 - INFO - Видео элемент найден
+2025-12-20 01:02:30,932 - INFO - Воспроизведение начато
+2025-12-20 01:02:33,928 - INFO - Просмотрено 0 из 60 секунд
+2025-12-20 01:02:44,078 - INFO - Просмотрено 10 из 60 секунд
+2025-12-20 01:03:14,410 - INFO - Просмотрено 40 из 60 секунд
+2025-12-20 01:03:24,435 - INFO - Просмотрено 50 из 60 секунд
+2025-12-20 01:03:34,436 - INFO - Просмотрено 60 из 60 секунд
+2025-12-20 01:03:35,954 - INFO - Просмотр видео завершен: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:03:35,955 - INFO - Видео 2/3
+2025-12-20 01:03:35,955 - INFO - Пауза между видео: 9 секунд
+2025-12-20 01:03:44,963 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:03:44,963 - INFO - Запланированное время просмотра: 60 секунд
+2025-12-20 01:04:25,357 - INFO - Видео элемент найден
+2025-12-20 01:04:25,369 - INFO - Воспроизведение начато
+2025-12-20 01:04:28,830 - INFO - Просмотрено 0 из 60 секунд
+2025-12-20 01:04:49,202 - INFO - Просмотрено 20 из 60 секунд
+2025-12-20 01:05:19,161 - INFO - Программа остановлена пользователем
+2025-12-20 01:05:19,162 - INFO - Закрываем браузер...
+2025-12-20 01:05:19,164 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)': /session/44b4f4dccdcea15069b0c5e976a234fa
+2025-12-20 01:05:23,215 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=59780): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/44b4f4dccdcea15069b0c5e976a234fa
+2025-12-20 01:05:37,725 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:05:37,725 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:05:37,725 - INFO - Режим отображения: БЕЗ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА (Headless)
+2025-12-20 01:05:37,761 - INFO - ====== WebDriver manager ======
+2025-12-20 01:05:38,692 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:05:38,692 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:05:38,693 - INFO - There is no [win64] chromedriver "143.0.7499.110" for browser google-chrome "143.0.7499.110" in cache
+2025-12-20 01:05:38,693 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:05:38,894 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:05:38,900 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:05:38,900 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:05:39,080 - INFO - Driver downloading response is 200
+2025-12-20 01:05:40,005 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:05:40,095 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.110]
+2025-12-20 01:05:40,099 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:05:40,099 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:05:41,617 - INFO - Драйвер успешно создан
+2025-12-20 01:05:41,617 - INFO - Настройки: GUI=False, Инкогнито=True
+2025-12-20 01:05:41,617 - INFO - 
+============================================================
+2025-12-20 01:05:41,617 - INFO - ВИДЕО 1/3
+2025-12-20 01:05:41,617 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:05:41,617 - INFO - ============================================================
+2025-12-20 01:05:41,617 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:05:41,617 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:05:50,965 - INFO - Куки приняты
+2025-12-20 01:05:52,204 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:05:52,204 - INFO - Видео элемент найден
+2025-12-20 01:05:52,226 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:06:17,850 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:06:30,349 - INFO - Просмотр видео завершен: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:06:30,360 - INFO - 
+============================================================
+2025-12-20 01:06:30,360 - INFO - ВИДЕО 2/3
+2025-12-20 01:06:30,361 - INFO - URL: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:06:30,361 - INFO - ============================================================
+2025-12-20 01:06:30,361 - INFO - Пауза между видео: 11 секунд
+2025-12-20 01:06:41,368 - INFO - Начинаем просмотр видео: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:06:41,368 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:07:26,979 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:07:26,980 - INFO - Видео элемент найден
+2025-12-20 01:07:26,986 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:07:42,175 - INFO - Просмотрено 10 из 30 секунд
+2025-12-20 01:07:52,237 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:08:01,757 - INFO - Просмотрено 30 из 30 секунд
+2025-12-20 01:08:03,698 - INFO - Просмотр видео завершен: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:08:03,699 - INFO - 
+============================================================
+2025-12-20 01:08:03,699 - INFO - ВИДЕО 3/3
+2025-12-20 01:08:03,699 - INFO - URL: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:08:03,699 - INFO - ============================================================
+2025-12-20 01:08:03,699 - INFO - Пауза между видео: 9 секунд
+2025-12-20 01:08:12,700 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:08:12,700 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:08:38,892 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:08:38,893 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:08:38,893 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:08:38,919 - INFO - ====== WebDriver manager ======
+2025-12-20 01:08:39,779 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:08:39,779 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:08:39,780 - INFO - There is no [win64] chromedriver "143.0.7499.110" for browser google-chrome "143.0.7499.110" in cache
+2025-12-20 01:08:39,780 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:08:40,117 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:08:40,122 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:08:40,122 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:08:40,217 - INFO - Driver downloading response is 200
+2025-12-20 01:08:40,984 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:08:41,061 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.110]
+2025-12-20 01:08:41,065 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:08:41,065 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:08:42,492 - INFO - Драйвер успешно создан
+2025-12-20 01:08:42,492 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:08:42,492 - INFO - 
+============================================================
+2025-12-20 01:08:42,492 - INFO - ВИДЕО 1/3
+2025-12-20 01:08:42,492 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:08:42,492 - INFO - ============================================================
+2025-12-20 01:08:42,492 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:08:42,492 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:08:48,023 - INFO - Куки приняты
+2025-12-20 01:08:49,900 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:08:49,901 - INFO - Видео элемент найден
+2025-12-20 01:08:49,908 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:09:05,314 - INFO - Просмотрено 10 из 30 секунд
+2025-12-20 01:09:25,490 - INFO - Просмотрено 30 из 30 секунд
+2025-12-20 01:09:28,261 - INFO - Просмотр видео завершен: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:09:28,265 - INFO - 
+============================================================
+2025-12-20 01:09:28,265 - INFO - ВИДЕО 2/3
+2025-12-20 01:09:28,265 - INFO - URL: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:09:28,265 - INFO - ============================================================
+2025-12-20 01:09:28,265 - INFO - Пауза между видео: 6 секунд
+2025-12-20 01:09:34,267 - INFO - Начинаем просмотр видео: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:09:34,267 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:10:21,763 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:10:21,763 - INFO - Видео элемент найден
+2025-12-20 01:10:21,770 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:10:37,257 - INFO - Просмотрено 10 из 30 секунд
+2025-12-20 01:11:00,866 - INFO - Просмотр видео завершен: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:11:00,867 - INFO - 
+============================================================
+2025-12-20 01:11:00,867 - INFO - ВИДЕО 3/3
+2025-12-20 01:11:00,867 - INFO - URL: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:11:00,868 - INFO - ============================================================
+2025-12-20 01:11:00,868 - INFO - Пауза между видео: 13 секунд
+2025-12-20 01:11:13,869 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:11:13,869 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:11:13,889 - INFO - 
+Программа остановлена пользователем (Ctrl+C)
+2025-12-20 01:11:13,889 - INFO - Закрываем браузер...
+2025-12-20 01:11:40,262 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:11:40,262 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:11:40,262 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:11:40,295 - INFO - ====== WebDriver manager ======
+2025-12-20 01:11:41,145 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:11:41,145 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:11:41,145 - INFO - There is no [win64] chromedriver "143.0.7499.110" for browser google-chrome "143.0.7499.110" in cache
+2025-12-20 01:11:41,145 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:11:41,549 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:11:41,554 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:11:41,554 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:11:41,709 - INFO - Driver downloading response is 200
+2025-12-20 01:11:42,624 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:11:42,710 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.110]
+2025-12-20 01:11:42,713 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:11:42,713 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:11:44,141 - INFO - Драйвер успешно создан
+2025-12-20 01:11:44,141 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:11:44,141 - INFO - 
+============================================================
+2025-12-20 01:11:44,141 - INFO - ВИДЕО 1/3
+2025-12-20 01:11:44,141 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:11:44,142 - INFO - ============================================================
+2025-12-20 01:11:44,142 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:11:44,142 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:11:48,550 - INFO - 
+Программа остановлена пользователем (Ctrl+C)
+2025-12-20 01:11:48,550 - INFO - Закрываем браузер...
+2025-12-20 01:11:48,552 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Удаленный хост принудительно разорвал существующее подключение', None, 10054, None)': /session/c2267c4d09d8d80be43d27fe9c8a1a55
+2025-12-20 01:11:52,595 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=54836): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/c2267c4d09d8d80be43d27fe9c8a1a55
+2025-12-20 01:11:56,638 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=54836): Failed to establish a new connection: [WinError 10061] Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение")': /session/c2267c4d09d8d80be43d27fe9c8a1a55
+2025-12-20 01:27:37,173 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:27:37,174 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:27:37,174 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:27:37,511 - INFO - ====== WebDriver manager ======
+2025-12-20 01:27:38,502 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:27:38,508 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:27:38,508 - INFO - There is no [win64] chromedriver "143.0.7499.170" for browser google-chrome "143.0.7499.170" in cache
+2025-12-20 01:27:38,509 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:27:39,051 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:27:39,058 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:27:39,058 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:27:39,222 - INFO - Driver downloading response is 200
+2025-12-20 01:27:40,277 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:27:40,369 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.170]
+2025-12-20 01:27:40,399 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:27:40,399 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:27:43,322 - INFO - Драйвер успешно создан
+2025-12-20 01:27:43,323 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:27:43,323 - INFO - 
+============================================================
+2025-12-20 01:27:43,323 - INFO - ВИДЕО 1/3
+2025-12-20 01:27:43,324 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:27:43,324 - INFO - ============================================================
+2025-12-20 01:27:43,324 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:27:43,324 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:27:51,644 - INFO - Куки приняты
+2025-12-20 01:27:52,805 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:27:52,805 - INFO - Видео элемент найден
+2025-12-20 01:27:52,868 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:28:09,573 - INFO - Просмотрено 10 из 30 секунд
+2025-12-20 01:28:28,934 - INFO - Просмотрено 30 из 30 секунд
+2025-12-20 01:28:31,539 - INFO - Просмотр видео завершен: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:28:31,551 - INFO - 
+============================================================
+2025-12-20 01:28:31,551 - INFO - ВИДЕО 2/3
+2025-12-20 01:28:31,552 - INFO - URL: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:28:31,552 - INFO - ============================================================
+2025-12-20 01:28:31,552 - INFO - Пауза между видео: 5 секунд
+2025-12-20 01:28:36,562 - INFO - Начинаем просмотр видео: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:28:36,562 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:29:24,121 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:29:24,122 - INFO - Видео элемент найден
+2025-12-20 01:29:24,129 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:29:49,531 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:30:02,429 - INFO - Просмотр видео завершен: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:30:02,432 - INFO - 
+============================================================
+2025-12-20 01:30:02,432 - INFO - ВИДЕО 3/3
+2025-12-20 01:30:02,432 - INFO - URL: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:30:02,432 - INFO - ============================================================
+2025-12-20 01:30:02,433 - INFO - Пауза между видео: 9 секунд
+2025-12-20 01:30:11,438 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:30:11,438 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:30:58,308 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:30:58,308 - INFO - Видео элемент найден
+2025-12-20 01:30:58,318 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:31:25,449 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:31:38,165 - INFO - Просмотр видео завершен: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:31:38,169 - INFO - Закрываем браузер...
+2025-12-20 01:34:33,696 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:34:33,698 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:34:33,698 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:34:33,730 - INFO - ====== WebDriver manager ======
+2025-12-20 01:34:34,648 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:34:34,648 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:34:34,648 - INFO - There is no [win64] chromedriver "143.0.7499.170" for browser google-chrome "143.0.7499.170" in cache
+2025-12-20 01:34:34,649 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:34:34,983 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:34:34,989 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:34:34,989 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:34:35,187 - INFO - Driver downloading response is 200
+2025-12-20 01:34:36,007 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:34:36,098 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.170]
+2025-12-20 01:34:36,101 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:34:36,102 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:34:37,589 - INFO - Драйвер успешно создан
+2025-12-20 01:34:37,589 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:34:37,589 - INFO - 
+============================================================
+2025-12-20 01:34:37,589 - INFO - ВИДЕО 1/3
+2025-12-20 01:34:37,589 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:34:37,589 - INFO - ============================================================
+2025-12-20 01:34:37,590 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:34:37,590 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:34:47,530 - INFO - Куки приняты
+2025-12-20 01:34:48,916 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:34:48,916 - INFO - Видео элемент найден
+2025-12-20 01:34:48,949 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:35:01,349 - INFO - 
+Программа остановлена пользователем (Ctrl+C)
+2025-12-20 01:35:01,350 - INFO - Закрываем браузер...
+2025-12-20 01:36:45,005 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:36:45,007 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:36:45,007 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:36:45,039 - INFO - ====== WebDriver manager ======
+2025-12-20 01:36:45,993 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:36:45,993 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:36:45,993 - INFO - There is no [win64] chromedriver "143.0.7499.170" for browser google-chrome "143.0.7499.170" in cache
+2025-12-20 01:36:45,994 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:36:46,333 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:36:46,339 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:36:46,339 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:36:46,445 - INFO - Driver downloading response is 200
+2025-12-20 01:36:47,306 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:36:47,400 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.170]
+2025-12-20 01:36:47,405 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:36:47,405 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:36:48,950 - INFO - Драйвер успешно создан
+2025-12-20 01:36:48,950 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:36:48,950 - INFO - 
+============================================================
+2025-12-20 01:36:48,950 - INFO - ВИДЕО 1/3
+2025-12-20 01:36:48,950 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:36:48,951 - INFO - ============================================================
+2025-12-20 01:36:48,951 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:36:48,951 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:37:00,188 - INFO - Куки приняты
+2025-12-20 01:37:01,565 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:37:01,565 - INFO - Видео элемент найден
+2025-12-20 01:37:01,571 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:37:26,759 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:37:32,946 - ERROR - Ошибка WebDriver при просмотре https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/: Message: invalid session id
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7d02688e5
+	0x7ff7d0268940
+	0x7ff7d0041465
+	0x7ff7d0089d83
+	0x7ff7d00c1ee2
+	0x7ff7d00bc500
+	0x7ff7d00bb6f0
+	0x7ff7d000b325
+	0x7ff7d0580640
+	0x7ff7d057af80
+	0x7ff7d05996e6
+	0x7ff7d0285de4
+	0x7ff7d028ed8c
+	0x7ff7d0009cb8
+	0x7ff7d06df008
+	0x7ffdb0a5e8d7
+	0x7ffdb19cc53c
+
+2025-12-20 01:37:32,950 - INFO - 
+============================================================
+2025-12-20 01:37:32,950 - INFO - ВИДЕО 2/3
+2025-12-20 01:37:32,950 - INFO - URL: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:37:32,950 - INFO - ============================================================
+2025-12-20 01:37:32,950 - INFO - Пауза между видео: 15 секунд
+2025-12-20 01:37:47,966 - INFO - Начинаем просмотр видео: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:37:47,966 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:37:47,968 - ERROR - Ошибка WebDriver при просмотре https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/: Message: invalid session id
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7d02688e5
+	0x7ff7d0268940
+	0x7ff7d0041465
+	0x7ff7d0089d83
+	0x7ff7d00c1ee2
+	0x7ff7d00bc500
+	0x7ff7d00bb6f0
+	0x7ff7d000b325
+	0x7ff7d0580640
+	0x7ff7d057af80
+	0x7ff7d05996e6
+	0x7ff7d0285de4
+	0x7ff7d028ed8c
+	0x7ff7d0009cb8
+	0x7ff7d06df008
+	0x7ffdb0a5e8d7
+	0x7ffdb19cc53c
+
+2025-12-20 01:37:47,971 - INFO - 
+============================================================
+2025-12-20 01:37:47,971 - INFO - ВИДЕО 3/3
+2025-12-20 01:37:47,971 - INFO - URL: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:37:47,972 - INFO - ============================================================
+2025-12-20 01:37:47,972 - INFO - Пауза между видео: 7 секунд
+2025-12-20 01:37:54,982 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:37:54,982 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:37:54,983 - ERROR - Ошибка WebDriver при просмотре https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/: Message: invalid session id
+Stacktrace:
+Symbols not available. Dumping unresolved backtrace:
+	0x7ff7d02688e5
+	0x7ff7d0268940
+	0x7ff7d0041465
+	0x7ff7d0089d83
+	0x7ff7d00c1ee2
+	0x7ff7d00bc500
+	0x7ff7d00bb6f0
+	0x7ff7d000b325
+	0x7ff7d0580640
+	0x7ff7d057af80
+	0x7ff7d05996e6
+	0x7ff7d0285de4
+	0x7ff7d028ed8c
+	0x7ff7d0009cb8
+	0x7ff7d06df008
+	0x7ffdb0a5e8d7
+	0x7ffdb19cc53c
+
+2025-12-20 01:37:54,985 - INFO - Закрываем браузер...
+2025-12-20 01:38:01,273 - INFO - Загружено 3 RuTube видео из файла videos.txt
+2025-12-20 01:38:01,274 - INFO - Режим инкогнито: ВКЛЮЧЕН
+2025-12-20 01:38:01,274 - INFO - Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ
+2025-12-20 01:38:01,302 - INFO - ====== WebDriver manager ======
+2025-12-20 01:38:02,223 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:38:02,223 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:38:02,223 - INFO - There is no [win64] chromedriver "143.0.7499.170" for browser google-chrome "143.0.7499.170" in cache
+2025-12-20 01:38:02,224 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:38:02,383 - INFO - WebDriver version 143.0.7499.169 selected
+2025-12-20 01:38:02,388 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:38:02,388 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/143.0.7499.169/win32/chromedriver-win32.zip
+2025-12-20 01:38:02,497 - INFO - Driver downloading response is 200
+2025-12-20 01:38:03,269 - INFO - Get LATEST chromedriver version for google-chrome
+2025-12-20 01:38:03,359 - INFO - Driver has been saved in cache [C:\Users\Admin\.wdm\drivers\chromedriver\win64\143.0.7499.170]
+2025-12-20 01:38:03,362 - WARNING - Ошибка при создании драйвера: [WinError 193] %1 не является приложением Win32
+2025-12-20 01:38:03,362 - INFO - Пробуем альтернативный метод...
+2025-12-20 01:38:04,778 - INFO - Драйвер успешно создан
+2025-12-20 01:38:04,778 - INFO - Настройки: GUI=True, Инкогнито=True
+2025-12-20 01:38:04,778 - INFO - 
+============================================================
+2025-12-20 01:38:04,779 - INFO - ВИДЕО 1/3
+2025-12-20 01:38:04,779 - INFO - URL: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:38:04,779 - INFO - ============================================================
+2025-12-20 01:38:04,779 - INFO - Начинаем просмотр видео: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:38:04,779 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:38:10,512 - INFO - Куки приняты
+2025-12-20 01:38:12,484 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:38:12,485 - INFO - Видео элемент найден
+2025-12-20 01:38:12,519 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:38:49,174 - INFO - Просмотрено 30 из 30 секунд
+2025-12-20 01:38:50,894 - INFO - Просмотр видео завершен: https://rutube.ru/video/98bb09ca8afaffc730697368c578742e/
+2025-12-20 01:38:50,899 - INFO - 
+============================================================
+2025-12-20 01:38:50,899 - INFO - ВИДЕО 2/3
+2025-12-20 01:38:50,899 - INFO - URL: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:38:50,899 - INFO - ============================================================
+2025-12-20 01:38:50,899 - INFO - Пауза между видео: 7 секунд
+2025-12-20 01:38:57,903 - INFO - Начинаем просмотр видео: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:38:57,903 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:39:44,320 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:39:44,320 - INFO - Видео элемент найден
+2025-12-20 01:39:44,331 - INFO - Воспроизведение начато через JavaScript
+2025-12-20 01:40:10,651 - INFO - Просмотрено 20 из 30 секунд
+2025-12-20 01:40:22,014 - INFO - Просмотр видео завершен: https://rutube.ru/video/66aa46a7be939ef2b09971ac9cfd3575/
+2025-12-20 01:40:22,016 - INFO - 
+============================================================
+2025-12-20 01:40:22,017 - INFO - ВИДЕО 3/3
+2025-12-20 01:40:22,017 - INFO - URL: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:40:22,017 - INFO - ============================================================
+2025-12-20 01:40:22,017 - INFO - Пауза между видео: 12 секунд
+2025-12-20 01:40:34,019 - INFO - Начинаем просмотр видео: https://rutube.ru/video/7e101627ab015538f7ad8c5b154f1d49/
+2025-12-20 01:40:34,019 - INFO - Запланированное время просмотра: 30 секунд
+2025-12-20 01:41:20,903 - INFO - Видео элемент найден с селектором: video
+2025-12-20 01:41:20,904 - INFO - Видео элемент найден
+2025-12-20 01:41:20,911 - INFO - Воспроизведение начато через JavaScript

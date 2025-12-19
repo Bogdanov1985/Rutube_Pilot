@@ -1,11 +1,11 @@
 # config.py
 DEFAULT_SETTINGS = {
     # Режим запуска
-    "GUI_MODE": False,  # True - с графическим интерфейсом, False - headless
+    "GUI_MODE": True,  # True - с графическим интерфейсом, False - headless
     "INCOGNITO_MODE": True,  # Режим инкогнито
 
     # Настройки просмотра
-    "DEFAULT_WATCH_TIME": 30,  # Секунд
+    "DEFAULT_WATCH_TIME": 20,  # Секунд
     "SHUFFLE_VIDEOS": False,
     "MAX_VIDEOS_PER_SESSION": None,
 

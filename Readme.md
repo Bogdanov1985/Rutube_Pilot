@@ -60,7 +60,37 @@ python rutube_viewer.py \
 ## 4. С GUI и без инкогнито
 bash
 ```
-python rutube_viewer.py --file videos.txt --gui --no-incognito
+python rutube_viewer_new.py --file videos.txt --gui --no-incognito
+```
+
+# 1. Поместите chromedriver в selenium-server и запускайте:
+```
+№ первая версия 
+python rutube_viewer.py --file videos.txt
+
+# версия с путями к драйверам 
+python rutube_viewer_new.py --file videos.txt
+
+# оптимизированный 
+python rutube_viewer_opti.py --file videos.txt
+
+# оптимизированный c зкрытием окна рекламы
+python rutube_viewer_close.py --file videos.txt
+
+
+# Headless режим
+python rutube_viewer_opti.py --file videos.txt --no-gui
+```
+
+# 2. Или укажите явный путь:
+```
+python rutube_viewer.py --file videos.txt --chromedriver "./selenium-server/chromedriver.exe"
+```
+
+# 3. Через переменную окружения:
+```
+export CHROMEDRIVER_PATH=./selenium-server/chromedriver
+python rutube_viewer.py --file videos.txt
 ```
 
 # Основные изменения:
@@ -82,3 +112,15 @@ python rutube_viewer.py --file videos.txt --gui --no-incognito
 
 ## 5. Автоматическая установка драйвера:
 * Добавлена поддержка webdriver-manager для автоматической загрузки ChromeDriver
+
+# 6. Требуемая структура проекта:
+text
+```
+ваш_проект/
+├── rutube_viewer.py
+├── selenium-server/           # Создайте этот каталог
+│   ├── chromedriver.exe       # Для Windows
+│   └── chromedriver           # Для Linux/Mac
+├── videos.txt
+└── requirements.txt
+```

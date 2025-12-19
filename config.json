@@ -1,5 +1,5 @@
 {
-    "default_watch_time": 30,
+    "default_watch_time": 20,
     "headless": false,
     "incognito": true,
     "shuffle_videos": false,

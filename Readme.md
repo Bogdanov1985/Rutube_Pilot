@@ -2,7 +2,18 @@
 
 https://www.chromedriverdownload.com/en/downloads/chromedriver-143-download
 
-This tool depends on python3 and uses some libraries. In order to install them, you can use pip:
+
+# Установка Python при ошибке "Unable to locate package python3.9"
+```
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.9
+```
+
+# Установка пакетов для pip:
+
 ```
 $ sudo pip3 install -r requirements.txt
 ```

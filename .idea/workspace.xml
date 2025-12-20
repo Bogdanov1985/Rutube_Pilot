@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed18cdb0-cc99-414d-b929-56678600ea83" name="Changes" comment="Pilot">
-      <change afterPath="$PROJECT_DIR$/rutube_viewer_close.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/rutube_viewer_opti.py" afterDir="false" />
+    <list default="true" id="ed18cdb0-cc99-414d-b929-56678600ea83" name="Changes" comment="Добавлено:&#10;proxy&#10;работа в цикле">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer.log" beforeDir="false" afterPath="$PROJECT_DIR$/rutube_viewer.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewer_stats.json" beforeDir="false" afterPath="$PROJECT_DIR$/viewer_stats.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,9 +27,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Bogdanov1985&quot;
+  }
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="4f3c91ec-0d4a-4479-b454-8094c4115f91" />
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bogdanov1985/Rutube_Pilot.git&quot;,
+    &quot;accountId&quot;: &quot;4f3c91ec-0d4a-4479-b454-8094c4115f91&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -45,28 +50,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.python rutube_viewe_opti.py --file videos.txt.executor": "Run",
-    "Python.python rutube_viewer.py --file videos.txt --no-gui.executor": "Run",
-    "Python.python rutube_viewer.py --file videos.txt.executor": "Run",
-    "Python.python rutube_viewer_new.py --file videos.txt --gui --no-incognito.executor": "Run",
-    "Python.python rutube_viewer_opti.py --file videos.txt.executor": "Run",
-    "Python.rutube_viewer.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/MyPyCharmProject/Test_Rutube/selenium-server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.python rutube_pro.py --file videos.txt --use-proxy --proxy-file proxies.txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_pro.py --proxy-only --max-proxies 1000 --max-workers 3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewe_opti.py --file videos.txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer.py --file videos.txt --no-gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer.py --file videos.txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer_close.py --file videos.txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer_cycles.py --file videos.txt --cycles 5 --time 45 --shuffle.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer_new.py --file videos.txt --gui --no-incognito.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python rutube_viewer_opti.py --file videos.txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rutube_pro.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rutube_viewer.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyPyCharmProject/Test_Rutube/selenium-server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MyPyCharmProject\Test_Rutube\selenium-server" />
@@ -76,8 +89,8 @@
       <recent name="D:\MyPyCharmProject\Test_Rutube" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.python rutube_viewer_close.py --file videos.txt">
-    <configuration name="python rutube_viewe_opti.py --file videos.txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.python rutube_pro.py --file videos.txt --use-proxy --proxy-file proxies.txt">
+    <configuration name="python rutube_pro.py --file videos.txt --use-proxy --proxy-file proxies.txt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Test_Rutube" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,8 +104,33 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="rutube_viewe_opti.py" />
-      <option name="PARAMETERS" value="--file videos.txt" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="rutube_pro.py" />
+      <option name="PARAMETERS" value="--file videos.txt --use-proxy --proxy-file proxies.txt" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="python rutube_pro.py --proxy-only --max-proxies 1000 --max-workers 3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Test_Rutube" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="rutube_pro.py" />
+      <option name="PARAMETERS" value="--proxy-only --max-proxies 1000 --max-workers 3" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -114,6 +152,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="rutube_viewer_close.py" />
       <option name="PARAMETERS" value="--file videos.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -123,7 +162,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="python rutube_viewer_new.py --file videos.txt --gui --no-incognito" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="python rutube_viewer_cycles.py --file videos.txt --cycles 5 --time 45 --shuffle" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Test_Rutube" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,8 +176,9 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="rutube_viewer_new.py" />
-      <option name="PARAMETERS" value="--file videos.txt --gui --no-incognito" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="rutube_viewer_cycles.py" />
+      <option name="PARAMETERS" value="--file videos.txt --cycles 5 --time 45 --shuffle" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -160,6 +200,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="rutube_viewer_opti.py" />
       <option name="PARAMETERS" value="--file videos.txt" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -169,44 +210,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="python rutube_viewer.py --file videos.txt --no-gui" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Test_Rutube" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="rutube_viewer.py" />
-      <option name="PARAMETERS" value="--file videos.txt --no-gui" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.python rutube_pro.py --file videos.txt --use-proxy --proxy-file proxies.txt" />
+        <item itemvalue="Python.python rutube_pro.py --proxy-only --max-proxies 1000 --max-workers 3" />
+        <item itemvalue="Python.python rutube_viewer_cycles.py --file videos.txt --cycles 5 --time 45 --shuffle" />
         <item itemvalue="Python.python rutube_viewer_close.py --file videos.txt" />
         <item itemvalue="Python.python rutube_viewer_opti.py --file videos.txt" />
-        <item itemvalue="Python.python rutube_viewe_opti.py --file videos.txt" />
-        <item itemvalue="Python.python rutube_viewer_new.py --file videos.txt --gui --no-incognito" />
-        <item itemvalue="Python.python rutube_viewer.py --file videos.txt --no-gui" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
-        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PY-253.28294.336" />
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
       </set>
     </attachedChunks>
   </component>
@@ -219,7 +237,11 @@
       <updated>1766178313572</updated>
       <workItem from="1766178314585" duration="3067000" />
       <workItem from="1766181739964" duration="1005000" />
-      <workItem from="1766183095685" duration="3259000" />
+      <workItem from="1766183095685" duration="3700000" />
+      <workItem from="1766209593790" duration="194000" />
+      <workItem from="1766210225904" duration="5058000" />
+      <workItem from="1766216536187" duration="5444000" />
+      <workItem from="1766254927025" duration="66000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -277,7 +299,55 @@
       <option name="project" value="LOCAL" />
       <updated>1766184805662</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Pilot">
+      <option name="closed" value="true" />
+      <created>1766186653895</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766186653895</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Pilot">
+      <option name="closed" value="true" />
+      <created>1766186730825</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1766186730825</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Pilot">
+      <option name="closed" value="true" />
+      <created>1766186776223</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1766186776223</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Pilot">
+      <option name="closed" value="true" />
+      <created>1766186785849</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1766186785849</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Добавлено:&#10;proxy&#10;работа в цикле">
+      <option name="closed" value="true" />
+      <created>1766215949789</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1766215949789</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Добавлено:&#10;proxy&#10;работа в цикле">
+      <option name="closed" value="true" />
+      <created>1766224151413</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1766224151413</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +364,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -309,14 +379,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
     <MESSAGE value="Pilot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pilot" />
+    <MESSAGE value="Добавлено:&#10;proxy&#10;работа в цикле" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;proxy&#10;работа в цикле" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Test_Rutube$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1766213956820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_close_py___file_videos_txt.coverage" NAME="python rutube_viewer_close.py --file videos.txt Coverage Results" MODIFIED="1766186406692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewe_opti_py___file_videos_txt.coverage" NAME="python rutube_viewe_opti.py --file videos.txt Coverage Results" MODIFIED="1766185960892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_new_py___file_videos_txt___gui___no_incognito.coverage" NAME="python rutube_viewer_new.py --file videos.txt --gui --no-incognito Coverage Results" MODIFIED="1766185271640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Test_Rutube$rutube_viewer.coverage" NAME="rutube_viewer Coverage Results" MODIFIED="1766183734259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_py___file_videos_txt___no_gui.coverage" NAME="python rutube_viewer.py --file videos.txt --no-gui Coverage Results" MODIFIED="1766184886081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_py___file_videos_txt.coverage" NAME="python rutube_viewer.py --file videos.txt Coverage Results" MODIFIED="1766182300081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_opti_py___file_videos_txt.coverage" NAME="python rutube_viewer_opti.py --file videos.txt Coverage Results" MODIFIED="1766186002910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$rutube_pro.coverage" NAME="rutube_pro Coverage Results" MODIFIED="1766215317263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_pro_py___proxy_only___max_proxies_1000___max_workers_3.coverage" NAME="python rutube_pro.py --proxy-only --max-proxies 1000 --max-workers 3 Coverage Results" MODIFIED="1766218568293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_cycles_py___file_videos_txt___cycles_5___time_45___shuffle.coverage" NAME="python rutube_viewer_cycles.py --file videos.txt --cycles 5 --time 45 --shuffle Coverage Results" MODIFIED="1766210515535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$rutube_viewer.coverage" NAME="rutube_viewer Coverage Results" MODIFIED="1766183734259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_pro_py___file_videos_txt___use_proxy___proxy_file_proxies_txt.coverage" NAME="python rutube_pro.py --file videos.txt --use-proxy --proxy-file proxies.txt Coverage Results" MODIFIED="1766218583195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

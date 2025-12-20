@@ -72,10 +72,12 @@ class ProxyManager:
         """Получение прокси из различных источников"""
         if sources is None:
             sources = [
-                'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all',
-                'https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt',
-                'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt',
-                'https://www.proxy-list.download/api/v1/get?type=http',
+                'proxylist.txt',
+                'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=ru&ssl=all&anonymity=all',  ## только RU
+               # 'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all',  ## все страны
+               # 'https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt',
+               # 'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt',
+               # 'https://www.proxy-list.download/api/v1/get?type=http',
                # "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/all/data.txt   # не верный формат
                 "https://vakhov.github.io/fresh-proxy-list/proxylist.txt"
 

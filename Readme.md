@@ -2,6 +2,10 @@
 
 https://www.chromedriverdownload.com/en/downloads/chromedriver-143-download
 
+This tool depends on python3 and uses some libraries. In order to install them, you can use pip:
+```
+$ sudo pip3 install -r requirements.txt
+```
 
 # Запуск скрипта 1 версия 
 ## Способ 1: Из файла
@@ -80,6 +84,28 @@ python rutube_viewer_close.py --file videos.txt
 
 # Headless режим
 python rutube_viewer_opti.py --file videos.txt --no-gui
+```
+
+# 6. Примеры использования:
+## Бесконечный цикл:
+bash
+```
+python rutube_viewer_cycles.py --file videos.txt --cycles 0 --time 30 --delay-between-cycles 60
+```
+## 5 циклов:
+bash
+```
+python rutube_viewer_cycles.py --file videos.txt --cycles 5 --time 45 --shuffle
+```
+## 10 циклов с задержкой 2 минуты:
+bash
+```
+python rutube_viewer_cycles.py --file videos.txt --cycles 10 --time 60 --delay-between-cycles 120 --no-gui
+```
+## Бесконечный цикл в headless режиме:
+bash
+```
+python rutube_viewer_cycles.py --file videos.txt --cycles 0 --no-gui --time 40 --delay-between-cycles 45
 ```
 
 # 2. Или укажите явный путь:

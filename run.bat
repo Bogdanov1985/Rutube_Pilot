@@ -13,5 +13,5 @@ REM python --V
 
 REM pip install -r requirements.txt
 
-python rutube_viewer_cycles.py --file videos.txt  --no-gui --cycles 0 --time 310 --delay-between-cycles 20
+python Script\rutube_viewer_cycles.py --file videos.txt  --no-gui --cycles 0 --time 310 --delay-between-cycles 20
 pause

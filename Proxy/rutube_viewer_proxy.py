@@ -5,6 +5,7 @@ Rutube Bot
 Updated version for Rutube with improved proxy management
 """
 
+import os
 import sys
 import time
 import json
@@ -25,12 +26,17 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
+# Создаем директории перед настройкой логирования
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_DIR = os.path.join(BASE_DIR, 'Logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
 # Настройка логирования
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('rutube_bot.log'),
+        logging.FileHandler(os.path.join(LOG_DIR, 'rutube_bot.log')),
         logging.StreamHandler()
     ]
 )
@@ -60,6 +66,7 @@ class ProxyManager:
         """Получение прокси из различных источников"""
         if sources is None:
             sources = [
+                os.path.join(BASE_DIR, 'Proxy', 'proxylist.txt'),
                 'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all',
                 'https://raw.githubusercontent.com/TheSpeedX/SOCKS-List/master/http.txt',
                 'https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt',
@@ -68,13 +75,22 @@ class ProxyManager:
 
         async def fetch_source(url):
             try:
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(url, timeout=10) as response:
-                        if response.status == 200:
-                            text = await response.text()
-                            proxies = [p.strip() for p in text.split('\n') if p.strip()]
+                # Если это локальный файл
+                if url.startswith('http'):
+                    async with aiohttp.ClientSession() as session:
+                        async with session.get(url, timeout=10) as response:
+                            if response.status == 200:
+                                text = await response.text()
+                                proxies = [p.strip() for p in text.split('\n') if p.strip()]
+                                return proxies
+                else:
+                    # Чтение из локального файла
+                    if os.path.exists(url):
+                        with open(url, 'r') as f:
+                            proxies = [p.strip() for p in f.readlines() if p.strip()]
                             return proxies
-            except:
+            except Exception as e:
+                logger.debug(f"Ошибка при получении прокси из {url}: {e}")
                 return []
 
         tasks = [fetch_source(source) for source in sources]
@@ -82,7 +98,8 @@ class ProxyManager:
 
         all_proxies = []
         for proxy_list in results:
-            all_proxies.extend(proxy_list)
+            if proxy_list:
+                all_proxies.extend(proxy_list)
 
         # Убираем дубликаты
         self.proxies = list(set(all_proxies))[:self.max_proxies]
@@ -139,9 +156,11 @@ class ProxyManager:
         logger.info(f"Найдено {len(self.working_proxies)} рабочих прокси")
 
         # Сохраняем в файл
-        with open('working_proxies.json', 'w') as f:
+        log_file = os.path.join(LOG_DIR, 'working_proxies.json')
+        with open(log_file, 'w') as f:
             json.dump(self.working_proxies, f, indent=2)
 
+        logger.info(f"Рабочие прокси сохранены в {log_file}")
         return self.working_proxies
 
     def get_random_proxy(self):
@@ -167,7 +186,10 @@ class ProxyManager:
             'working_list': self.working_proxies
         }
 
-        with open('proxy_stats.json', 'w') as f:
+        stats_file = os.path.join(BASE_DIR, 'Proxy', 'proxy_stats.json')
+        os.makedirs(os.path.dirname(stats_file), exist_ok=True)
+
+        with open(stats_file, 'w') as f:
             json.dump(stats, f, indent=2, ensure_ascii=False)
 
 
@@ -546,10 +568,11 @@ class RutubeBot:
         self.stats['duration'] = str(datetime.fromisoformat(self.stats['end_time']) -
                                      datetime.fromisoformat(self.stats['start_time']))
 
-        with open('bot_statistics.json', 'w', encoding='utf-8') as f:
+        stats_file = os.path.join(LOG_DIR, 'bot_statistics.json')
+        with open(stats_file, 'w', encoding='utf-8') as f:
             json.dump(self.stats, f, indent=2, ensure_ascii=False, default=str)
 
-        logger.info(f"Статистика сохранена в bot_statistics.json")
+        logger.info(f"Статистика сохранена в {stats_file}")
         logger.info(f"Итого: {self.stats['successful_visits']} успешных, "
                     f"{self.stats['failed_visits']} неудачных посещений")
 

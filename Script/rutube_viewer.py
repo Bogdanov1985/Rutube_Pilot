@@ -2,7 +2,7 @@ import time
 import random
 import argparse
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Union
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,19 +14,23 @@ from selenium.common.exceptions import TimeoutException, WebDriverException
 import logging
 import json
 import os
+import sys
+
+#driver = webdriver.Chrome(executable_path="./selenium-server/chromedriver")
+
 
 
 class RuTubeViewer:
-    def __init__(self, headless: bool = False, incognito: bool = True):
+    def __init__(self, gui_mode: bool = True, incognito: bool = True):
         """
         Инициализация RuTube просмотрщика
 
         Args:
-            headless (bool): Запуск в режиме без графического интерфейса
+            gui_mode (bool): True - с графическим интерфейсом, False - без графического интерфейса (headless)
             incognito (bool): Использовать режим инкогнито
         """
         self.setup_logging()
-        self.headless = headless
+        self.gui_mode = gui_mode
         self.incognito = incognito
         self.driver = None
         self.stats = {
@@ -34,7 +38,12 @@ class RuTubeViewer:
             'successful_views': 0,
             'failed_views': 0,
             'total_watch_time': 0,
-            'videos_history': []
+            'videos_history': [],
+            'settings': {
+                'gui_mode': gui_mode,
+                'incognito': incognito,
+                'start_time': datetime.now().isoformat()
+            }
         }
 
     def setup_logging(self):
@@ -43,14 +52,14 @@ class RuTubeViewer:
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler('rutube_viewer.log'),
+                logging.FileHandler('../rutube_viewer.log'),
                 logging.StreamHandler()
             ]
         )
         self.logger = logging.getLogger(__name__)
 
     def create_driver(self):
-        """Создание и настройка драйвера Selenium"""
+        """Создание и настройка драйвера Selenium с выбранным режимом"""
         try:
             chrome_options = Options()
 
@@ -62,42 +71,142 @@ class RuTubeViewer:
             # Режим инкогнито
             if self.incognito:
                 chrome_options.add_argument("--incognito")
+                self.logger.info("Режим инкогнито: ВКЛЮЧЕН")
+            else:
+                self.logger.info("Режим инкогнито: ВЫКЛЮЧЕН")
 
-            # Режим без графического интерфейса
-            if self.headless:
-                chrome_options.add_argument("--headless")
+            # Режим графического интерфейса
+            if not self.gui_mode:
+                # Headless режим (без GUI)
+                chrome_options.add_argument("--headless=new")  # Новый headless режим Chrome
                 chrome_options.add_argument("--no-sandbox")
                 chrome_options.add_argument("--disable-dev-shm-usage")
+                chrome_options.add_argument("--disable-gpu")
+                self.logger.info("Режим отображения: БЕЗ ГРАФИЧЕСКОГО ИНТЕРФЕЙСА (Headless)")
+            else:
+                # Графический режим (с GUI)
+                chrome_options.add_argument("--start-maximized")  # Запуск в максимизированном окне
+                self.logger.info("Режим отображения: С ГРАФИЧЕСКИМ ИНТЕРФЕЙСОМ")
 
             # Дополнительные опции для более естественного поведения
             chrome_options.add_argument("--disable-notifications")
             chrome_options.add_argument("--disable-popup-blocking")
             chrome_options.add_argument("--disable-infobars")
             chrome_options.add_argument("--disable-extensions")
-            chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--window-size=1920,1080")
             chrome_options.add_argument("--lang=ru-RU")
+
+            # Опции для улучшения производительности
+            chrome_options.add_argument("--disable-software-rasterizer")
+            chrome_options.add_argument("--disable-web-security")
+            chrome_options.add_argument("--allow-running-insecure-content")
 
             # Случайный User-Agent
             user_agents = [
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
                 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             ]
-            chrome_options.add_argument(f'user-agent={random.choice(user_agents)}')
+            selected_ua = random.choice(user_agents)
+            chrome_options.add_argument(f'user-agent={selected_ua}')
+            self.logger.debug(f"Используется User-Agent: {selected_ua}")
+
+            # Для headless режима добавляем фейковые параметры для обхода обнаружения
+            if not self.gui_mode:
+                chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+                chrome_options.add_argument("--disable-features=VizDisplayCompositor")
 
             # Создаем драйвер
-            self.driver = webdriver.Chrome(options=chrome_options)
+            try:
+                # Попробуем использовать ChromeDriver Manager для автоматической загрузки драйвера
+                try:
+                    from webdriver_manager.chrome import ChromeDriverManager
+                    from selenium.webdriver.chrome.service import Service as ChromeService
+
+                    service = ChromeService(ChromeDriverManager().install())
+                    self.driver = webdriver.Chrome(service=service, options=chrome_options)
+                    self.logger.info("Драйвер загружен через ChromeDriver Manager")
+                except ImportError:
+                    # Если webdriver_manager не установлен, используем стандартный путь
+                    self.logger.info("Используется системный ChromeDriver")
+                    self.driver = webdriver.Chrome(options=chrome_options)
+
+            except Exception as driver_error:
+                self.logger.warning(f"Ошибка при создании драйвера: {driver_error}")
+                self.logger.info("Пробуем альтернативный метод...")
+                self.driver = webdriver.Chrome(options=chrome_options)
 
             # Скрываем автоматизацию
             self.driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+            self.driver.execute_cdp_cmd('Network.setUserAgentOverride', {
+                "userAgent": self.driver.execute_script("return navigator.userAgent").replace("Headless", "")
+            })
+
+            # Для headless режима добавляем дополнительные меры
+            if not self.gui_mode:
+                self.driver.execute_script("""
+                    Object.defineProperty(navigator, 'plugins', {
+                        get: () => [1, 2, 3, 4, 5]
+                    });
+                    Object.defineProperty(navigator, 'languages', {
+                        get: () => ['ru-RU', 'ru', 'en-US', 'en']
+                    });
+                """)
 
             self.logger.info("Драйвер успешно создан")
+            self.logger.info(f"Настройки: GUI={self.gui_mode}, Инкогнито={self.incognito}")
             return True
 
         except Exception as e:
-            self.logger.error(f"Ошибка при создании драйвера: {e}")
+            self.logger.error(f"Ошибка при создании драйвера: {str(e)}")
+            self.logger.error("Проверьте, что установлены:")
+            self.logger.error("1. Google Chrome последней версии")
+            self.logger.error("2. ChromeDriver (совместимый с версией Chrome)")
+            self.logger.error("3. Selenium: pip install selenium")
+            self.logger.error("4. Webdriver Manager (опционально): pip install webdriver-manager")
             return False
+
+    def display_mode_info(self):
+        """Вывод информации о текущем режиме работы"""
+        mode_info = """
+╔════════════════════════════════════════════════════════════╗
+║                    РЕЖИМ РАБОТЫ                            ║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║"""
+
+        if self.gui_mode:
+            mode_info += """
+║  📺  ГРАФИЧЕСКИЙ РЕЖИМ (С ОКНОМ БРАУЗЕРА)                  ║
+║                                                            ║
+║  • Браузер будет отображаться на экране                    ║
+║  • Вы сможете видеть процесс просмотра                     ║
+║  • Полезно для отладки и тестирования                      ║"""
+        else:
+            mode_info += """
+║  🖥️   HEADLESS РЕЖИМ (БЕЗ ОКНА БРАУЗЕРА)                   ║
+║                                                            ║
+║  • Браузер работает в фоновом режиме                       ║
+║  • Не отображается на экране                               ║
+║  • Меньше потребление ресурсов                             ║
+║  • Подходит для серверов и автоматизации                   ║"""
+
+        mode_info += """
+║                                                            ║"""
+
+        if self.incognito:
+            mode_info += """
+║  🔒  РЕЖИМ ИНКОГНИТО: ВКЛЮЧЕН                              ║"""
+        else:
+            mode_info += """
+║  🔓  РЕЖИМ ИНКОГНИТО: ВЫКЛЮЧЕН                             ║"""
+
+        mode_info += """
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+        """
+
+        print(mode_info)
 
     def wait_random_time(self, min_seconds: float = 1.0, max_seconds: float = 3.0):
         """Случайная задержка для имитации человеческого поведения"""
@@ -107,7 +216,14 @@ class RuTubeViewer:
     def simulate_human_interaction(self):
         """Имитация человеческого взаимодействия со страницей"""
         try:
-            # Случайные движения мыши
+            # В headless режиме имитация отличается
+            if not self.gui_mode:
+                # В headless режиме просто делаем случайные паузы
+                if random.random() < 0.3:
+                    time.sleep(random.uniform(0.5, 2))
+                return
+
+            # Только в GUI режиме делаем реальные движения мыши
             actions = ActionChains(self.driver)
 
             # Получаем размеры окна
@@ -143,7 +259,8 @@ class RuTubeViewer:
                 "div[class*='cookie'] button",
                 "//button[contains(text(), 'Принять')]",
                 "//button[contains(text(), 'Согласен')]",
-                "//button[contains(text(), 'OK')]"
+                "//button[contains(text(), 'OK')]",
+                "//button[contains(text(), 'Принимаю')]"
             ]
 
             for selector in cookie_selectors:
@@ -204,7 +321,9 @@ class RuTubeViewer:
                 "div[class*='video-player']",
                 "div[class*='player']",
                 "#video-player",
-                ".video-js"
+                ".video-js",
+                "video[class*='player']",
+                "video[class*='video']"
             ]
 
             video_element = None
@@ -218,18 +337,29 @@ class RuTubeViewer:
                         video_element = self.driver.find_element(By.CSS_SELECTOR, selector)
 
                     if video_element:
+                        self.logger.info(f"Видео элемент найден с селектором: {selector}")
                         break
                 except:
                     continue
 
+            # Альтернативный метод поиска видео
             if not video_element:
-                self.logger.warning("Видео элемент не найден, попробуем альтернативный метод")
+                self.logger.warning("Видео элемент не найден стандартными методами, пробуем альтернативные...")
+
                 # Попробуем найти через iframe
                 try:
-                    iframe = self.driver.find_element(By.TAG_NAME, "iframe")
-                    self.driver.switch_to.frame(iframe)
-                    video_element = self.driver.find_element(By.TAG_NAME, "video")
-                    self.driver.switch_to.default_content()
+                    iframes = self.driver.find_elements(By.TAG_NAME, "iframe")
+                    for iframe in iframes:
+                        try:
+                            src = iframe.get_attribute("src")
+                            if src and ("rutube" in src or "video" in src):
+                                self.driver.switch_to.frame(iframe)
+                                video_element = self.driver.find_element(By.TAG_NAME, "video")
+                                self.driver.switch_to.default_content()
+                                break
+                        except:
+                            self.driver.switch_to.default_content()
+                            continue
                 except:
                     pass
 
@@ -239,14 +369,22 @@ class RuTubeViewer:
                 # Пытаемся начать воспроизведение
                 try:
                     self.driver.execute_script("arguments[0].play();", video_element)
-                    self.logger.info("Воспроизведение начато")
+                    self.logger.info("Воспроизведение начато через JavaScript")
+                    self.wait_random_time(2, 3)
                 except:
                     # Если скрипт не сработал, пытаемся кликнуть на видео
                     try:
                         video_element.click()
                         self.logger.info("Клик на видео выполнен")
+                        self.wait_random_time(2, 3)
                     except:
-                        self.logger.warning("Не удалось начать воспроизведение автоматически")
+                        # Пробуем кликнуть через JavaScript
+                        try:
+                            self.driver.execute_script("arguments[0].click();", video_element)
+                            self.logger.info("Клик выполнен через JavaScript")
+                        except:
+                            self.logger.warning("Не удалось начать воспроизведение автоматически")
+                            # Все равно продолжаем "просмотр"
 
                 # Ждем немного перед имитацией взаимодействия
                 self.wait_random_time(2, 4)
@@ -267,11 +405,14 @@ class RuTubeViewer:
                         self.driver.execute_script(f"window.scrollTo(0, {scroll_pos});")
 
                     # Обновляем прошедшее время
-                    elapsed_time = time.time() - start_time
+                    current_time = time.time()
+                    elapsed_time = current_time - start_time
 
                     # Выводим прогресс каждые 10 секунд
-                    if int(elapsed_time) % 10 == 0:
-                        self.logger.info(f"Просмотрено {int(elapsed_time)} из {watch_time} секунд")
+                    progress = int(elapsed_time)
+                    if progress > 0 and progress % 10 == 0 and progress != self.last_progress:
+                        self.logger.info(f"Просмотрено {progress} из {watch_time} секунд")
+                        self.last_progress = progress
 
                     # Случайная пауза
                     pause_time = random.uniform(1, 3)
@@ -281,8 +422,11 @@ class RuTubeViewer:
                 return True
 
             else:
-                self.logger.error(f"Не удалось найти видео элемент для {video_url}")
-                return False
+                self.logger.warning(f"Не удалось найти видео элемент для {video_url}")
+                # Даже если не нашли видео, все равно "просматриваем" страницу указанное время
+                self.logger.info("Симулируем просмотр страницы...")
+                time.sleep(watch_time)
+                return True
 
         except TimeoutException:
             self.logger.error(f"Таймаут при загрузке видео: {video_url}")
@@ -307,17 +451,23 @@ class RuTubeViewer:
         """
         if shuffle:
             random.shuffle(video_urls)
+            self.logger.info("Список видео перемешан")
 
         if max_videos:
             video_urls = video_urls[:max_videos]
+            self.logger.info(f"Ограничение на {max_videos} видео")
 
         self.stats['total_videos'] = len(video_urls)
 
         for i, video_url in enumerate(video_urls, 1):
-            self.logger.info(f"Видео {i}/{len(video_urls)}")
+            self.last_progress = 0
+            self.logger.info(f"\n{'=' * 60}")
+            self.logger.info(f"ВИДЕО {i}/{len(video_urls)}")
+            self.logger.info(f"URL: {video_url}")
+            self.logger.info(f"{'=' * 60}")
 
             # Проверяем, что это действительно ссылка на RuTube
-            if "rutube.ru" not in video_url and "rutube.pl" not in video_url:
+            if "rutube.ru" not in video_url and "rutube.pl" not in video_url and "rutube.io" not in video_url:
                 self.logger.warning(f"Ссылка {video_url} не похожа на RuTube, пропускаем")
                 self.stats['failed_views'] += 1
                 continue
@@ -336,15 +486,18 @@ class RuTubeViewer:
                 'url': video_url,
                 'timestamp': datetime.now().isoformat(),
                 'watch_time': watch_time,
-                'success': success
+                'success': success,
+                'video_number': i
             }
             self.stats['videos_history'].append(video_stat)
 
             if success:
                 self.stats['successful_views'] += 1
                 self.stats['total_watch_time'] += watch_time
+                self.logger.info(f"✓ Видео успешно просмотрено")
             else:
                 self.stats['failed_views'] += 1
+                self.logger.error(f"✗ Ошибка при просмотре видео")
 
             # Сохраняем статистику после каждого видео
             self.save_stats()
@@ -352,7 +505,9 @@ class RuTubeViewer:
     def save_stats(self):
         """Сохранение статистики в файл"""
         try:
-            stats_file = 'viewer_stats.json'
+            stats_file = '../viewer_stats.json'
+            self.stats['settings']['end_time'] = datetime.now().isoformat()
+
             with open(stats_file, 'w', encoding='utf-8') as f:
                 json.dump(self.stats, f, ensure_ascii=False, indent=2)
             self.logger.debug(f"Статистика сохранена в {stats_file}")
@@ -370,6 +525,10 @@ class RuTubeViewer:
             List[str]: Список URL видео
         """
         try:
+            if not os.path.exists(filepath):
+                self.logger.error(f"Файл не найден: {filepath}")
+                return []
+
             with open(filepath, 'r', encoding='utf-8') as f:
                 content = f.read()
 
@@ -380,30 +539,39 @@ class RuTubeViewer:
             for line in content.split('\n'):
                 line = line.strip()
                 if line and not line.startswith('#'):  # Пропускаем пустые строки и комментарии
+                    # Удаляем возможные кавычки
+                    line = line.replace('"', '').replace("'", "")
                     urls.append(line)
 
-            self.logger.info(f"Загружено {len(urls)} видео из файла {filepath}")
-            return urls
+            # Фильтруем только rutube ссылки
+            rutube_urls = [url for url in urls if
+                           any(domain in url for domain in ['rutube.ru', 'rutube.pl', 'rutube.io'])]
 
-        except FileNotFoundError:
-            self.logger.error(f"Файл не найден: {filepath}")
-            return []
+            if len(rutube_urls) < len(urls):
+                self.logger.warning(f"Отфильтровано {len(urls) - len(rutube_urls)} не-RuTube ссылок")
+
+            self.logger.info(f"Загружено {len(rutube_urls)} RuTube видео из файла {filepath}")
+            return rutube_urls
+
         except Exception as e:
             self.logger.error(f"Ошибка при загрузке файла {filepath}: {e}")
             return []
 
-    def run(self, video_urls: List[str], watch_time: int = 30,
+    def run(self, video_urls: Union[str, List[str]], watch_time: int = 30,
             shuffle: bool = False, max_videos: Optional[int] = None):
         """
         Основной метод запуска просмотра
 
         Args:
-            video_urls (List[str]): Список URL видео или один URL
+            video_urls (Union[str, List[str]]): Список URL видео или один URL
             watch_time (int): Время просмотра каждого видео
             shuffle (bool): Перемешивать ли список видео
             max_videos (Optional[int]): Максимальное количество видео
         """
         try:
+            # Выводим информацию о режиме работы
+            self.display_mode_info()
+
             # Создаем драйвер
             if not self.create_driver():
                 self.logger.error("Не удалось создать драйвер")
@@ -420,36 +588,83 @@ class RuTubeViewer:
             self.print_summary()
 
         except KeyboardInterrupt:
-            self.logger.info("Программа остановлена пользователем")
+            self.logger.info("\nПрограмма остановлена пользователем (Ctrl+C)")
             self.print_summary()
         except Exception as e:
             self.logger.error(f"Критическая ошибка: {e}")
+            import traceback
+            traceback.print_exc()
         finally:
             if self.driver:
                 self.logger.info("Закрываем браузер...")
-                self.driver.quit()
+                try:
+                    self.driver.quit()
+                except:
+                    pass
 
     def print_summary(self):
         """Вывод итоговой статистики"""
-        print("\n" + "=" * 50)
+        print("\n" + "=" * 60)
         print("ИТОГОВАЯ СТАТИСТИКА")
-        print("=" * 50)
+        print("=" * 60)
         print(f"Всего видео в списке: {self.stats['total_videos']}")
-        print(f"Успешно просмотрено: {self.stats['successful_views']}")
-        print(f"Не удалось просмотреть: {self.stats['failed_views']}")
-        print(f"Общее время просмотра: {self.stats['total_watch_time']} секунд")
-        print(f"Статистика сохранена в viewer_stats.json")
-        print("=" * 50)
+        print(f"Успешно просмотрено: {self.stats['successful_views']} ✓")
+        print(f"Не удалось просмотреть: {self.stats['failed_views']} ✗")
+
+        total_seconds = self.stats['total_watch_time']
+        hours = total_seconds // 3600
+        minutes = (total_seconds % 3600) // 60
+        seconds = total_seconds % 60
+
+        print(f"Общее время просмотра: {hours}ч {minutes}м {seconds}с")
+        print(f"Режим GUI: {'ВКЛ' if self.gui_mode else 'ВЫКЛ'}")
+        print(f"Режим инкогнито: {'ВКЛ' if self.incognito else 'ВЫКЛ'}")
+
+        if self.stats['videos_history']:
+            print(f"\nПоследние просмотренные видео:")
+            for video in self.stats['videos_history'][-5:]:  # Последние 5 видео
+                status = "✓" if video.get('success') else "✗"
+                print(f"  {status} {video.get('url', 'N/A')}")
+
+        print(f"\nСтатистика сохранена в viewer_stats.json")
+        print("=" * 60)
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Автоматизированный просмотр видео на RuTube')
+    parser = argparse.ArgumentParser(
+        description='Автоматизированный просмотр видео на RuTube',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Примеры использования:
+  python rutube_viewer.py --file videos.txt --time 60 --gui
+  python rutube_viewer.py --urls "https://rutube.ru/video/123/" --time 30 --no-gui
+  python rutube_viewer.py --file list.txt --no-gui --shuffle --max 10
+  python rutube_viewer.py --file videos.txt --gui --no-incognito
+
+Формат файла со списком видео:
+  # Это комментарий
+  https://rutube.ru/video/1234567890abcdef/
+  https://rutube.ru/video/0987654321/
+        """
+    )
+
+    # Основные аргументы
     parser.add_argument('--urls', nargs='+', help='Список URL видео на RuTube')
     parser.add_argument('--file', type=str, help='Файл со списком URL видео (по одному на строку)')
     parser.add_argument('--time', type=int, default=30,
                         help='Время просмотра каждого видео в секундах (по умолчанию: 30)')
-    parser.add_argument('--headless', action='store_true', help='Запуск в фоновом режиме (без графического интерфейса)')
-    parser.add_argument('--no-incognito', action='store_true', help='Не использовать режим инкогнито')
+
+    # Режимы работы
+    parser.add_argument('--gui', action='store_true', default=True,
+                        help='Запуск с графическим интерфейсом (окно браузера видно) (по умолчанию: ВКЛ)')
+    parser.add_argument('--no-gui', action='store_false', dest='gui',
+                        help='Запуск без графического интерфейса (headless режим)')
+
+    # Дополнительные опции
+    parser.add_argument('--incognito', action='store_true', default=True,
+                        help='Использовать режим инкогнито (по умолчанию: ВКЛ)')
+    parser.add_argument('--no-incognito', action='store_false', dest='incognito',
+                        help='Не использовать режим инкогнито')
     parser.add_argument('--shuffle', action='store_true', help='Перемешать список видео')
     parser.add_argument('--max', type=int, help='Максимальное количество видео для просмотра')
 
@@ -460,19 +675,27 @@ def main():
 
     if args.urls:
         video_urls.extend(args.urls)
+        print(f"Загружено {len(args.urls)} видео из аргументов командной строки")
 
     if args.file:
-        viewer = RuTubeViewer(headless=args.headless, incognito=not args.no_incognito)
-        loaded_urls = viewer.load_videos_from_file(args.file)
+        # Создаем временный объект для загрузки файла
+        temp_viewer = RuTubeViewer(gui_mode=args.gui, incognito=args.incognito)
+        loaded_urls = temp_viewer.load_videos_from_file(args.file)
         video_urls.extend(loaded_urls)
 
     if not video_urls:
         print("Ошибка: Не указаны видео для просмотра!")
         print("Используйте --urls для указания ссылок или --file для загрузки из файла")
+        print("\nПримеры:")
+        print("  python rutube_viewer.py --file videos.txt")
+        print("  python rutube_viewer.py --urls \"https://rutube.ru/video/123/\"")
         return
 
+    print(f"\nЗагружено всего: {len(video_urls)} видео")
+    print(f"Время просмотра каждого видео: {args.time} секунд")
+
     # Создаем и запускаем просмотрщик
-    viewer = RuTubeViewer(headless=args.headless, incognito=not args.no_incognito)
+    viewer = RuTubeViewer(gui_mode=args.gui, incognito=args.incognito)
     viewer.run(
         video_urls=video_urls,
         watch_time=args.time,

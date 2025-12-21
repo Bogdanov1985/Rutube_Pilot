@@ -127,7 +127,7 @@ class RuTubeViewer:
                 return super().format(record)
 
         # Настраиваем обработчик для файла
-        file_handler = logging.FileHandler('rutube_viewer.log', encoding='utf-8')
+        file_handler = logging.FileHandler('../rutube_viewer.log', encoding='utf-8')
         file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(file_formatter)
 
@@ -685,7 +685,7 @@ class RuTubeViewer:
     def save_stats(self):
         """Сохранение статистики в файл"""
         try:
-            stats_file = 'viewer_stats.json'
+            stats_file = '../viewer_stats.json'
             self.stats['settings']['end_time'] = datetime.now().isoformat()
 
             with open(stats_file, 'w', encoding='utf-8') as f:

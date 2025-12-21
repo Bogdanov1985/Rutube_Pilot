@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import TimeoutException, WebDriverException
+from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException
 import logging
 import json
 import os
@@ -33,6 +33,7 @@ class RuTubeViewer:
             'failed_views': 0,
             'total_watch_time': 0,
             'videos_history': [],
+            'cycles_completed': 0,
             'settings': {
                 'gui_mode': gui_mode,
                 'incognito': incognito,
@@ -83,7 +84,7 @@ class RuTubeViewer:
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler('rutube_viewer.log', encoding='utf-8'),
+                logging.FileHandler('../rutube_viewer.log', encoding='utf-8'),
                 logging.StreamHandler(sys.stdout)
             ]
         )
@@ -117,9 +118,73 @@ class RuTubeViewer:
 
             # User-Agent
             user_agents = [
+                # Chrome (последние версии)
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+
+                # Firefox (последние версии)
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:128.0) Gecko/20100101 Firefox/128.0',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0',
+                'Mozilla/5.0 (X11; Linux i686; rv:130.0) Gecko/20100101 Firefox/130.0',
+
+                # Safari (Mac)
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+
+                # Edge (Windows)
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 Edg/129.0.0.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36 Edg/128.0.0.0',
+
+                # Opera
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36 OPR/114.0.0.0',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 OPR/115.0.0.0',
+
+                # Более старые, но все еще популярные версии
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-            ]
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36',
+
+                # Firefox (старые версии)
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 Firefox/126.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0',
+
+                # Windows 11 специфичные
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 Edg/130.0.0.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+
+                # Windows 10
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:130.0) Gecko/20100101 Firefox/130.0',
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+
+                # Linux
+                'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:130.0) Gecko/20100101 Firefox/130.0',
+                'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+
+                # macOS
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
+                'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15'
+
+                    ]
             chrome_options.add_argument(f'user-agent={random.choice(user_agents)}')
 
             # Создание драйвера
@@ -154,6 +219,70 @@ class RuTubeViewer:
         """Случайная задержка"""
         time.sleep(random.uniform(min_seconds, max_seconds))
 
+    def close_popups(self):
+        """Закрытие всплывающих окон"""
+        try:
+            self.logger.info("Проверяем всплывающие окна...")
+
+            # Список селекторов для закрытия окон
+            close_selectors = [
+                "svg.svg-icon--IconClose",
+                "button[class*='close']",
+                "button[class*='Close']",
+                "div[class*='close'] button",
+                "div[class*='Close'] button",
+                "button[aria-label*='закрыть']",
+                "button[aria-label*='Закрыть']",
+                "button[title*='закрыть']",
+                "button[title*='Закрыть']",
+
+                # Общие селекторы всплывающих окон
+                "div[class*='modal'] button[class*='close']",
+                "div[class*='popup'] button[class*='close']",
+                "div[class*='dialog'] button[class*='close']",
+
+                # XPath селекторы
+                "//button[contains(@class, 'close')]",
+                "//button[.//*[contains(@class, 'IconClose')]]",
+                "//button[.//svg[contains(@class, 'IconClose')]]",
+                "//button[contains(text(), '✕')]",
+                "//button[contains(text(), '×')]",
+                "//button[contains(text(), 'X')]",
+                "//button[contains(text(), 'x')]",
+            ]
+
+            closed_popups = 0
+
+            for selector in close_selectors:
+                try:
+                    # Для XPath селекторов
+                    if selector.startswith("//"):
+                        elements = self.driver.find_elements(By.XPATH, selector)
+                    else:
+                        elements = self.driver.find_elements(By.CSS_SELECTOR, selector)
+
+                    for element in elements:
+                        try:
+                            if element.is_displayed() and element.is_enabled():
+                                element.click()
+                                self.logger.info(f"Закрыто всплывающее окно: {selector}")
+                                closed_popups += 1
+                                self.wait_random(0.5, 1)
+                                break
+                        except:
+                            continue
+
+                except Exception as e:
+                    continue
+
+            if closed_popups > 0:
+                self.logger.info(f"Закрыто {closed_popups} всплывающих окон")
+            else:
+                self.logger.debug("Всплывающих окон не найдено")
+
+        except Exception as e:
+            self.logger.debug(f"Ошибка при закрытии всплывающих окон: {e}")
+
     def accept_cookies(self):
         """Принятие куки"""
         try:
@@ -162,6 +291,10 @@ class RuTubeViewer:
                 "button[class*='Cookie']",
                 "//button[contains(text(), 'Принять')]",
                 "//button[contains(text(), 'Согласен')]",
+                "//button[contains(text(), 'Принимаю')]",
+                "//button[contains(text(), 'OK')]",
+                "//button[contains(text(), 'Ok')]",
+                "//button[contains(text(), 'ОК')]",
             ]
 
             for selector in cookie_selectors:
@@ -198,8 +331,14 @@ class RuTubeViewer:
             self.driver.get(video_url)
             self.wait_random(2, 4)
 
+            # Закрываем всплывающие окна
+            self.close_popups()
+
             # Куки
             self.accept_cookies()
+
+            # Еще раз проверяем всплывающие окна
+            self.close_popups()
 
             # Ждем загрузки
             WebDriverWait(self.driver, 10).until(
@@ -208,7 +347,15 @@ class RuTubeViewer:
 
             # Ищем видео
             video_element = None
-            video_selectors = ["video", "iframe[src*='rutube']", ".video-js"]
+            video_selectors = [
+                "video",
+                "iframe[src*='rutube']",
+                ".video-js",
+                "div[class*='video-player']",
+                "div[class*='player']",
+                "#video-player",
+                "video[class*='player']",
+            ]
 
             for selector in video_selectors:
                 try:
@@ -233,7 +380,17 @@ class RuTubeViewer:
                         video_element.click()
                         self.logger.info("Клик на видео")
                     except:
-                        self.logger.warning("Не удалось начать воспроизведение")
+                        try:
+                            # Пробуем найти кнопку play
+                            play_buttons = self.driver.find_elements(By.CSS_SELECTOR,
+                                                                     "button[class*='play'], button[title*='play'], button[aria-label*='play']")
+                            for btn in play_buttons:
+                                if btn.is_displayed():
+                                    btn.click()
+                                    self.logger.info("Нажата кнопка Play")
+                                    break
+                        except:
+                            self.logger.warning("Не удалось начать воспроизведение")
 
             # Время просмотра
             start_time = time.time()
@@ -276,7 +433,8 @@ class RuTubeViewer:
             video_urls = video_urls[:max_videos]
             self.logger.info(f"Ограничение: {max_videos} видео")
 
-        self.stats['total_videos'] = len(video_urls)
+        total_videos_in_cycle = len(video_urls)
+        self.stats['total_videos'] += total_videos_in_cycle
 
         for i, video_url in enumerate(video_urls, 1):
             self.logger.info(f"\n{'=' * 50}")
@@ -304,6 +462,7 @@ class RuTubeViewer:
                 'timestamp': datetime.now().isoformat(),
                 'watch_time': watch_time,
                 'success': success,
+                'cycle': self.stats['cycles_completed'] + 1,
             }
             self.stats['videos_history'].append(video_stat)
 
@@ -315,13 +474,13 @@ class RuTubeViewer:
                 self.stats['failed_views'] += 1
                 self.logger.error("Ошибка просмотра")
 
-            # Сохранение статистики
+            # Сохранение статистики после каждого видео
             self.save_stats()
 
     def save_stats(self):
         """Сохранение статистики"""
         try:
-            with open('viewer_stats.json', 'w', encoding='utf-8') as f:
+            with open('../viewer_stats.json', 'w', encoding='utf-8') as f:
                 self.stats['settings']['end_time'] = datetime.now().isoformat()
                 json.dump(self.stats, f, ensure_ascii=False, indent=2)
         except Exception as e:
@@ -354,15 +513,86 @@ class RuTubeViewer:
             self.logger.error(f"Ошибка загрузки файла: {e}")
             return []
 
+    def run_cycles(self, video_urls: List[str], watch_time: int = 30,
+                   shuffle: bool = False, max_videos: Optional[int] = None,
+                   cycles: int = 1, delay_between_cycles: int = 10):
+        """Запуск циклического просмотра"""
+        try:
+            # Информация о цикле
+            print(f"\n{'=' * 60}")
+            print(f"ЦИКЛИЧЕСКИЙ ПРОСМОТР")
+            print(f"{'=' * 60}")
+            print(f"Количество циклов: {'бесконечно' if cycles == 0 else cycles}")
+            print(f"Количество видео в цикле: {len(video_urls)}")
+            if max_videos:
+                print(f"Максимум видео в цикле: {max_videos}")
+            print(f"Время просмотра каждого видео: {watch_time} сек")
+            print(f"Задержка между циклами: {delay_between_cycles} сек")
+            print(f"{'=' * 60}")
+
+            cycle_count = 0
+
+            while True:
+                cycle_count += 1
+                self.stats['cycles_completed'] += 1
+
+                print(f"\n{'=' * 60}")
+                print(f"ЦИКЛ {cycle_count}")
+                print(f"{'=' * 60}")
+                self.logger.info(f"Начинаем цикл {cycle_count}")
+
+                # Обрабатываем видео в текущем цикле
+                self.process_videos(video_urls, watch_time, shuffle, max_videos)
+
+                # Проверяем условие завершения
+                if cycles > 0 and cycle_count >= cycles:
+                    self.logger.info(f"Выполнено заданное количество циклов: {cycles}")
+                    break
+
+                # Пауза между циклами
+                if cycles == 0 or cycle_count < cycles:
+                    print(f"\nОжидание перед следующим циклом: {delay_between_cycles} секунд")
+                    self.logger.info(f"Пауза перед следующим циклом: {delay_between_cycles} сек")
+
+                    # Отсчет с прогресс-баром
+                    for remaining in range(delay_between_cycles, 0, -1):
+                        print(f"\rОсталось: {remaining} сек {' ' * 10}", end='')
+                        time.sleep(1)
+                    print(f"\rОжидание завершено{' ' * 30}")
+
+                    # Перезапускаем драйвер между циклами для чистоты сессии
+                    self.logger.info("Перезапуск браузера для нового цикла...")
+                    try:
+                        if self.driver:
+                            self.driver.quit()
+                    except:
+                        pass
+
+                    # Создаем новый драйвер
+                    if not self.create_driver():
+                        self.logger.error("Не удалось создать драйвер для нового цикла")
+                        break
+
+            return True
+
+        except KeyboardInterrupt:
+            self.logger.info("Циклический просмотр остановлен пользователем")
+            return False
+        except Exception as e:
+            self.logger.error(f"Ошибка в циклическом просмотре: {e}")
+            return False
+
     def run(self, video_urls: Union[str, List[str]], watch_time: int = 30,
-            shuffle: bool = False, max_videos: Optional[int] = None):
-        """Основной запуск"""
+            shuffle: bool = False, max_videos: Optional[int] = None,
+            cycles: int = 1, delay_between_cycles: int = 10):
+        """Основной запуск с поддержкой циклов"""
         try:
             # Информация о режиме
             print(f"\nРежим: {'GUI' if self.gui_mode else 'Headless'}")
             print(f"Инкогнито: {'Да' if self.incognito else 'Нет'}")
             if self.chromedriver_path:
                 print(f"ChromeDriver: {self.chromedriver_path}")
+            print(f"Циклы: {'бесконечно' if cycles == 0 else cycles}")
             print("=" * 50)
 
             # Создаем драйвер
@@ -373,7 +603,12 @@ class RuTubeViewer:
             if isinstance(video_urls, str):
                 video_urls = [video_urls]
 
-            self.process_videos(video_urls, watch_time, shuffle, max_videos)
+            # Запускаем циклы
+            if cycles != 1:
+                self.run_cycles(video_urls, watch_time, shuffle, max_videos, cycles, delay_between_cycles)
+            else:
+                # Одиночный запуск (обратная совместимость)
+                self.process_videos(video_urls, watch_time, shuffle, max_videos)
 
             # Итоги
             self.print_summary()
@@ -393,9 +628,10 @@ class RuTubeViewer:
 
     def print_summary(self):
         """Итоговая статистика"""
-        print("\n" + "=" * 50)
+        print("\n" + "=" * 60)
         print("ИТОГИ")
-        print("=" * 50)
+        print("=" * 60)
+        print(f"Выполнено циклов: {self.stats['cycles_completed']}")
         print(f"Всего видео: {self.stats['total_videos']}")
         print(f"Успешно: {self.stats['successful_views']}")
         print(f"Ошибки: {self.stats['failed_views']}")
@@ -407,16 +643,22 @@ class RuTubeViewer:
 
         print(f"Общее время: {hours}ч {minutes}м {seconds}с")
         print(f"Статистика сохранена в viewer_stats.json")
-        print("=" * 50)
+        print("=" * 60)
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Просмотр видео на RuTube')
+    parser = argparse.ArgumentParser(description='Циклический просмотр видео на RuTube')
 
     # Основные аргументы
     parser.add_argument('--urls', nargs='+', help='Ссылки на видео')
     parser.add_argument('--file', type=str, help='Файл со списком видео')
-    parser.add_argument('--time', type=int, default=30, help='Время просмотра (сек)')
+    parser.add_argument('--time', type=int, default=30, help='Время просмотра каждого видео (сек)')
+
+    # Циклы
+    parser.add_argument('--cycles', type=int, default=1,
+                        help='Количество циклов (0 = бесконечно, 1 = по умолчанию)')
+    parser.add_argument('--delay-between-cycles', type=int, default=30,
+                        help='Задержка между циклами в секундах (по умолчанию: 30)')
 
     # Режимы
     parser.add_argument('--gui', action='store_true', default=True,
@@ -430,8 +672,8 @@ def main():
                         help='Режим инкогнито')
     parser.add_argument('--no-incognito', action='store_false', dest='incognito',
                         help='Без инкогнито')
-    parser.add_argument('--shuffle', action='store_true', help='Перемешать видео')
-    parser.add_argument('--max', type=int, help='Максимум видео')
+    parser.add_argument('--shuffle', action='store_true', help='Перемешать видео в каждом цикле')
+    parser.add_argument('--max', type=int, help='Максимум видео в каждом цикле')
 
     args = parser.parse_args()
 
@@ -450,6 +692,20 @@ def main():
         print("Ошибка: укажите видео через --urls или --file")
         return
 
+    # Проверяем параметр циклов
+    if args.cycles < 0:
+        print("Ошибка: количество циклов не может быть отрицательным")
+        return
+
+    if args.cycles == 0:
+        print("\nВНИМАНИЕ: Запущен бесконечный цикл просмотра!")
+        print("Для остановки нажмите Ctrl+C\n")
+
+    # Проверяем задержку между циклами
+    if args.delay_between_cycles < 0:
+        print("Ошибка: задержка между циклами не может быть отрицательной")
+        return
+
     # Запускаем
     viewer = RuTubeViewer(
         gui_mode=args.gui,
@@ -461,7 +717,9 @@ def main():
         video_urls=video_urls,
         watch_time=args.time,
         shuffle=args.shuffle,
-        max_videos=args.max
+        max_videos=args.max,
+        cycles=args.cycles,
+        delay_between_cycles=args.delay_between_cycles
     )
 
 

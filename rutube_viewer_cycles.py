@@ -122,7 +122,19 @@ class RuTubeViewer:
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
                 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-            ]
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit / 537.36(KHTML, likeGecko) Chrome/141.0.0.0 Safari/537.36'
+            '''
+            Mozilla / 5.0(Macintosh;
+            Intel
+            Mac
+            OS
+            X
+            10_15_7) AppleWebKit / 537.36(KHTML, like
+            Gecko) Chrome / 142.0
+            .0
+            .0
+            Safari / 537.36
+                '''
             chrome_options.add_argument(f'user-agent={random.choice(user_agents)}')
 
             # Создание драйвера

@@ -11,6 +11,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.9
 ```
+# 4. Устанавливаем ChromeDriver через apt (совместимую версию)
+```
+sudo apt install -y chromium-chromedriver
+```
 
 # Установка пакетов для pip:
 
@@ -121,7 +125,7 @@ python rutube_viewer_cycles.py --file videos.txt --cycles 0 --no-gui --time 40 -
 
 # 2. Или укажите явный путь:
 ```
-python rutube_viewer.py --file videos.txt --chromedriver "./selenium-server/chromedriver.exe"
+python rutube_viewer.py --file videos.txt --chromedriver "./selenium-server/chromedriver"
 ```
 
 # 3. Через переменную окружения:

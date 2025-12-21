@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ed18cdb0-cc99-414d-b929-56678600ea83" name="Changes" comment="Добавлено:&#10;proxy&#10;работа в цикле">
-      <change afterPath="$PROJECT_DIR$/Script/rutube_viewer_cycles1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Script/rutube_viewer_cycles2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Script/rutube_viewer_proxy1.py" afterDir="false" />
+    <list default="true" id="ed18cdb0-cc99-414d-b929-56678600ea83" name="Changes" comment="Добавлено:&#10;Обновлен скрипт работы в цикле">
+      <change afterPath="$PROJECT_DIR$/Config/user_agents.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Script/rutube_viewer_conf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/Config/config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Config/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Config/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxylist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Proxy/proxylist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.bat" beforeDir="false" afterPath="$PROJECT_DIR$/run.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_close.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer_close.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_cycles.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer_cycles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_new.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer_new.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_opti.py" beforeDir="false" afterPath="$PROJECT_DIR$/Script/rutube_viewer_opti.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rutube_viewer_proxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proxy/rutube_viewer_proxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/videos.txt" beforeDir="false" afterPath="$PROJECT_DIR$/videos.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +252,7 @@
       <workItem from="1766267091490" duration="69000" />
       <workItem from="1766267781047" duration="456000" />
       <workItem from="1766268420385" duration="2692000" />
-      <workItem from="1766314668179" duration="6957000" />
+      <workItem from="1766314668179" duration="8138000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <option name="closed" value="true" />
@@ -413,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766314693568</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Добавлено:&#10;Обновлен скрипт работы в цикле">
+      <option name="closed" value="true" />
+      <created>1766332466051</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1766332466051</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +439,8 @@
     <MESSAGE value="Test" />
     <MESSAGE value="Pilot" />
     <MESSAGE value="Добавлено:&#10;proxy&#10;работа в цикле" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;proxy&#10;работа в цикле" />
+    <MESSAGE value="Добавлено:&#10;Обновлен скрипт работы в цикле" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено:&#10;Обновлен скрипт работы в цикле" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Test_Rutube$python_rutube_viewer_py___file_videos_txt.coverage" NAME="python rutube_viewer.py --file videos.txt Coverage Results" MODIFIED="1766182300081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

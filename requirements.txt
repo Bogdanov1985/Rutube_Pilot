@@ -5,5 +5,9 @@ requests>=2.31.0
 asyncio>=3.4.3
 tqdm>=4.66.1
 colorlog>=6.7.0
-
+#proxy parser
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+PySocks>=1.7.1  # для проверки SOCKS прокси
 

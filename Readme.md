@@ -132,6 +132,8 @@ python rutube_viewer_cycles.py --file videos.txt --cycles 10 --time 60 --delay-b
 bash
 ```
 python rutube_viewer_cycles.py --file videos.txt --cycles 0 --no-gui --time 40 --delay-between-cycles 45
+#mac
+python rutube_viewer_mac.py --file videos.txt --cycles 0 --no-gui --time 180 --delay-between-cycles 120
 ```
 
 # 2. Или укажите явный путь:

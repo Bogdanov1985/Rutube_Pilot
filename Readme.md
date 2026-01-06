@@ -16,6 +16,11 @@ sudo apt install python3.9
 ```
 sudo apt install -y chromium-chromedriver
 ```
+или 
+
+```
+pip install webdriver-manager
+```
 
 # Установка пакетов для pip:
 

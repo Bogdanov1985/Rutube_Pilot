@@ -152,9 +152,12 @@ class RuTubeViewer:
         # 2. Каталог selenium-server
         paths_to_check = [
             Path(__file__).parent / "selenium-server" / "chromedriver.exe",
-            Path(__file__).parent / "selenium-server" / "chromedriver",
+            Path(__file__).parent / "selenium-server" / "chromedriver",  # macOS/Linux версия
             Path.cwd() / "selenium-server" / "chromedriver.exe",
-            Path.cwd() / "selenium-server" / "chromedriver",
+            Path.cwd() / "selenium-server" / "chromedriver",  # macOS/Linux версия
+            # Добавьте стандартные пути для macOS
+            Path("/usr/local/bin/chromedriver"),
+            Path("/opt/homebrew/bin/chromedriver"),
         ]
 
         for path in paths_to_check:

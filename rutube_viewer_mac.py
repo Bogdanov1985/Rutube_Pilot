@@ -156,29 +156,21 @@ class RuTubeViewer:
                 self.logger.warning(f"Указанный путь не существует: {custom_path}")
 
         # 2. Стандартные пути для macOS
-        mac_paths = [
-            # Домашняя директория
-            Path.home() / "chromedriver",
+        paths_to_check = [
             # В папке проекта
-            Path.cwd() / "chromedriver",
             Path.cwd() / "selenium-server" / "chromedriver",
             # Homebrew установки
             Path("/usr/local/bin/chromedriver"),
             Path("/opt/homebrew/bin/chromedriver"),
-            # Системные пути
-            Path("/usr/bin/chromedriver"),
+            # WebDriver Manager кэш
+            Path.home() / ".wdm" / "drivers" / "chromedriver" / "mac64" / "chromedriver",
+            # Альтернативные пути
+            Path.cwd() / "chromedriver",
+            Path.home() / "chromedriver",
         ]
 
-        for path in mac_paths:
+        for path in paths_to_check:
             if path.exists():
-                # Проверяем права
-                if not os.access(str(path), os.X_OK):
-                    try:
-                        os.chmod(str(path), 0o755)
-                        self.logger.info(f"Установлены права на выполнение: {path}")
-                    except:
-                        pass
-
                 self.logger.info(f"Найден ChromeDriver: {path}")
                 return str(path)
 

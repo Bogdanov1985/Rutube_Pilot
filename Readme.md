@@ -11,15 +11,26 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
 sudo apt install python3.9
 ```
+
 # 4. Устанавливаем ChromeDriver через apt (совместимую версию)
 ```
 sudo apt install -y chromium-chromedriver
+```
+или 
+
+```
+pip install webdriver-manager
 ```
 
 # Установка пакетов для pip:
 
 ```
-$ sudo pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
+```
+# При ошибке "comand not faund"
+```
+sudo apt install python3-pip
+sudo apt install python3-full
 ```
 
 # Запуск скрипта 1 версия 

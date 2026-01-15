@@ -1,3 +1,4 @@
+urllib3==1.26.6  # для исправления предупреждения OpenSSL
 selenium>=4.15.0
 webdriver-manager>=4.0.1
 aiohttp>=3.9.1
@@ -10,4 +11,6 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 lxml>=4.9.0
 PySocks>=1.7.1  # для проверки SOCKS прокси
+# В вашем виртуальном окружении
+
 
